@@ -246,7 +246,7 @@ class _ProfileBarState extends State<ProfileBar> {
                                                 );
                                               },
                                             )
-                                          : null;
+                                          : Container();
                                     },
                                     child: Row(
                                       mainAxisAlignment: MainAxisAlignment.end,

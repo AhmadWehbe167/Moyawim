@@ -78,68 +78,66 @@ class _NavDrawerState extends State<NavDrawer> {
                               builder: (context) => ProfilePageEnum()));
                     },
                     child: DrawerHeader(
-                        decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                          colors: [
-                            Colors.blue,
-                            Colors.cyanAccent,
-                            Colors.cyan,
-                            Colors.lightBlue
-                          ],
-                          begin: Alignment.centerRight,
-                          end: Alignment.topLeft,
-                        )),
+                        // decoration: BoxDecoration(
+                        //     gradient: LinearGradient(
+                        //   colors: [
+                        //     Colors.blue,
+                        //     Colors.cyanAccent,
+                        //     Colors.cyan,
+                        //     Colors.lightBlue
+                        //   ],
+                        //   begin: Alignment.centerRight,
+                        //   end: Alignment.topLeft,
+                        // )),
                         child: Container(
-                          margin: EdgeInsets.fromLTRB(0, 50, 0, 0),
-                          child: Container(
-                            child: Row(
+                      margin: EdgeInsets.fromLTRB(0, 50, 0, 0),
+                      child: Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            Container(
+                              height: 80,
+                              width: 80,
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                      fit: BoxFit.fill,
+                                      image: AssetImage(
+                                        "assets/Logo-Moyawem.jpeg",
+                                      ))),
+                            ),
+                            SizedBox(
+                              width: 13,
+                            ),
+                            Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: <Widget>[
-                                Container(
-                                  height: 80,
-                                  width: 80,
-                                  decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                            "assets/Logo-Moyawem.jpeg",
-                                          ))),
+                                Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(vertical: 10)),
+                                Text(
+                                  userDoc['name'] + " " + userDoc['lastname'],
+                                  textDirection: TextDirection.rtl,
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                      fontSize: 22,
+                                      fontWeight: FontWeight.bold),
+                                  softWrap: true,
                                 ),
-                                SizedBox(
-                                  width: 13,
-                                ),
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: <Widget>[
-                                    Padding(
-                                        padding:
-                                            EdgeInsets.symmetric(vertical: 10)),
-                                    Text(
-                                      userDoc['name'] +
-                                          " " +
-                                          userDoc['lastname'],
-                                      textDirection: TextDirection.rtl,
-                                      textAlign: TextAlign.left,
+                                Padding(
+                                  padding: EdgeInsets.only(right: 45),
+                                  child: Text(userDoc['phone number'],
                                       style: TextStyle(
-                                          fontSize: 22,
-                                          fontWeight: FontWeight.bold),
-                                      softWrap: true,
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.only(right: 45),
-                                      child: Text(userDoc['phone number'],
-                                          style: TextStyle(
-                                              fontSize: 20,
-                                              fontStyle: FontStyle.italic)),
-                                    ),
-                                  ],
-                                )
+                                          fontSize: 20,
+                                          fontStyle: FontStyle.italic)),
+                                ),
                               ],
-                            ),
-                            alignment: Alignment.centerLeft,
-                          ),
-                        )),
+                            )
+                          ],
+                        ),
+                        alignment: Alignment.centerLeft,
+                      ),
+                    )),
                   ),
                   ListTile(
                     leading: Icon(

@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:intro_views_flutter/Models/page_view_model.dart';
 import 'package:intro_views_flutter/intro_views_flutter.dart';
 import 'package:moyawim2/Login_SignUp_Pages/LoginSignUp.dart';
-import 'package:moyawim2/Login_SignUp_Pages/Tabs.dart';
-
 
 class AppIntro extends StatelessWidget {
   static final String moyawimText =
@@ -113,7 +111,7 @@ class AppIntro extends StatelessWidget {
 
   Route _createRoute() {
     return PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) => firstPage(),
+      pageBuilder: (context, animation, secondaryAnimation) => FirstPage(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         var begin = Offset(0.0, 1.0);
         var end = Offset.zero;

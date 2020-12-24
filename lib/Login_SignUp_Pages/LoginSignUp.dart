@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:moyawim2/Login_SignUp_Pages/Login_Page.dart';
 import 'package:moyawim2/Login_SignUp_Pages/Tabs.dart';
 
-
-class firstPage extends StatelessWidget {
+class FirstPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,11 +35,9 @@ class firstPage extends StatelessWidget {
                     ),
                   );
                 },
-                child: Text(
-                    "تسجيل الدخول",
+                child: Text("تسجيل الدخول",
                     style: TextStyle(fontSize: 20, color: Colors.white),
-                    textAlign: TextAlign.center
-                ),
+                    textAlign: TextAlign.center),
                 shape: RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(25.0),
                   side: BorderSide(color: Colors.blueAccent),
@@ -51,21 +48,19 @@ class firstPage extends StatelessWidget {
             RaisedButton(
               padding: EdgeInsets.symmetric(horizontal: 53),
               color: Colors.blueAccent,
-              onPressed:() {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Tabs(),
-                    ),
-                  );
-                },
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Tabs(),
+                  ),
+                );
+              },
 //                Navigator.of(context).push(createRoute1(Tabs()));
 
-              child: Text(
-                  "إنشاء حساب",
+              child: Text("إنشاء حساب",
                   style: TextStyle(fontSize: 20, color: Colors.white),
-                  textAlign: TextAlign.center
-              ),
+                  textAlign: TextAlign.center),
               shape: RoundedRectangleBorder(
                 borderRadius: new BorderRadius.circular(25.0),
                 side: BorderSide(color: Colors.blueAccent),
@@ -84,8 +79,8 @@ class firstPage extends StatelessWidget {
         var begin = Offset(0.0, 1.0);
         var end = Offset.zero;
         var curve = Curves.ease;
-        var tween = Tween(begin: begin, end: end).chain(
-            CurveTween(curve: curve));
+        var tween =
+            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
         return SlideTransition(
           position: animation.drive(tween),
           child: child,

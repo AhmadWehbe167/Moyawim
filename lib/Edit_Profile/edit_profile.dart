@@ -32,12 +32,12 @@ class EditEmployeeProfile extends State<EditProfile> {
   String _databaseImage = '';
   bool imageExists = false;
   bool loading = false;
-  String firstname;
-  String lastname;
+  String firstName;
+  String lastName;
   String desc;
   String city;
   String job;
-  int _ImagesNb;
+  int _imagesNb;
   bool employeeImages = false;
   int currentImageNumber;
   bool imageIsHere = false;
@@ -51,7 +51,7 @@ class EditEmployeeProfile extends State<EditProfile> {
         .document(widget.userId)
         .get();
     var nb = img.data['numberImages'];
-    nb == null ? _ImagesNb = 0 : _ImagesNb = nb;
+    nb == null ? _imagesNb = 0 : _imagesNb = nb;
   }
 
   Future getImage() async {
@@ -72,8 +72,8 @@ class EditEmployeeProfile extends State<EditProfile> {
     DocumentSnapshot ref =
         await Firestore.instance.collection(type).document(widget.userId).get();
     final userDoc = ref.data;
-    firstname = userDoc['name'];
-    lastname = userDoc['lastname'];
+    firstName = userDoc['name'];
+    lastName = userDoc['lastname'];
     desc = userDoc['description'];
     city = userDoc['city'];
     job = userDoc['job'];
@@ -283,8 +283,8 @@ class EditEmployeeProfile extends State<EditProfile> {
                           .collection('Employees')
                           .document(widget.userId)
                           .updateData({
-                        'name': firstname,
-                        'lastname': lastname,
+                        'name': firstName,
+                        'lastname': lastName,
                         'description': desc,
                         'city': city,
                         'job': job,
@@ -358,7 +358,7 @@ class EditEmployeeProfile extends State<EditProfile> {
                               hint: 'الاسم',
                               fun: (String val) {
                                 setState(() {
-                                  firstname = val;
+                                  firstName = val;
                                 });
                               },
                               valid: (value) {
@@ -373,7 +373,7 @@ class EditEmployeeProfile extends State<EditProfile> {
                               hint: 'الشهرة',
                               fun: (val) {
                                 setState(() {
-                                  lastname = val;
+                                  lastName = val;
                                 });
                               },
                               valid: (value) {
@@ -539,7 +539,7 @@ class EditEmployeeProfile extends State<EditProfile> {
                                                 ));
                                               } else {
                                                 return ListView.builder(
-                                                  itemCount: _ImagesNb,
+                                                  itemCount: _imagesNb,
                                                   itemBuilder:
                                                       (BuildContext context,
                                                           int index) {
@@ -567,7 +567,7 @@ class EditEmployeeProfile extends State<EditProfile> {
                                                                   '$value':
                                                                       null,
                                                                   'numberImages':
-                                                                      _ImagesNb -
+                                                                      _imagesNb -
                                                                           1,
                                                                 });
                                                               },

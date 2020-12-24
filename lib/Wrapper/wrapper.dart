@@ -9,9 +9,12 @@ class Wrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
     if (user == null) {
-      return seen();
+      return Seen();
     } else {
-      return WillPopScope(onWillPop:()=> Future.value(false), child: SideBar(),);
+      return WillPopScope(
+        onWillPop: () => Future.value(false),
+        child: SideBar(),
+      );
     }
   }
 }

@@ -1,23 +1,22 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:moyawim2/Login_SignUp_Pages/AppIntro.dart';
 import 'package:moyawim2/Login_SignUp_Pages/LoginSignUp.dart';
-import 'package:moyawim2/Login_SignUp_Pages/Tabs.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-void main() => runApp(seen());
+void main() => runApp(Seen());
 
-class seen extends StatefulWidget {
+class Seen extends StatefulWidget {
   @override
-  seenState createState() => seenState();
+  SeenState createState() => SeenState();
 }
 
-class seenState extends State<seen> {
+class SeenState extends State<Seen> {
   bool loading = true;
   bool seen = false;
 
   Future checkFirstSeen() async {
-
     SharedPreferences prefs = await SharedPreferences.getInstance();
     seen = (prefs.getBool('seen') ?? false);
     if (!seen) {
@@ -35,6 +34,6 @@ class seenState extends State<seen> {
 
   @override
   Widget build(BuildContext context) {
-    return seen ? firstPage() : AppIntro();
+    return seen ? FirstPage() : AppIntro();
   }
 }
